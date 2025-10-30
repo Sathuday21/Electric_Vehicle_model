@@ -10,6 +10,9 @@ Dataset name: Electric Vehicle Analytics Dataset
 Source: (https://www.kaggle.com/datasets/khushikyad001/electric-vehicle-analytics-dataset/data)
 
 # Next Steps:
-> Data Analysis
-> Building ML models
-> Creating an app using Streamlit
+
+Data Analysis
+
+Building ML models
+
+Creating an app using Streamlit
