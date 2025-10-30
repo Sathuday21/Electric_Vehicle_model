@@ -11,8 +11,8 @@ Source: (https://www.kaggle.com/datasets/khushikyad001/electric-vehicle-analytic
 
 # Next Steps:
 
-Data Analysis
+> Data Analysis
 
-Building ML models
+> Building ML models
 
-Creating an app using Streamlit
+> Creating an app using Streamlit
