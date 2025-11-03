@@ -1,0 +1,43 @@
+import pandas as pd
+from google.colab import files
+import io
+
+# --- 1. Load Original Data ---
+print("Please upload original 'electric_vehicle_analytics.csv' file:")
+uploaded = files.upload()
+
+filename = list(uploaded.keys())[0]
+print(f"\nSuccessfully uploaded '{filename}'")
+df = pd.read_csv(io.BytesIO(uploaded[filename]))
+
+print("\n--- 2. Initial Data Info (Before Cleaning) ---")
+df.info()
+
+# --- 3. Data Cleaning ---
+print("\n--- 3. Cleaning Data ---")
+
+# Drop columns that are not useful for prediction
+# 'Model' has too many unique values, 'Vehicle_ID' is just an identifier
+df_processed = df.drop(['Vehicle_ID', 'Model'], axis=1)
+
+# Define the text columns we need to convert
+categorical_cols = ['Make', 'Region', 'Vehicle_Type', 'Usage_Type']
+
+# Convert text columns to numbers using one-hot encoding
+df_processed = pd.get_dummies(df_processed, columns=categorical_cols, drop_first=True)
+
+print("Finished dropping columns and one-hot encoding.")
+
+# --- 4. Final Data Info (After Cleaning) ---
+print("\n--- 4. Final Processed Data Info ---")
+df_processed.info()
+print("\nFinal data head:")
+print(df_processed.head())
+
+# --- 5. Save Cleaned Data ---
+# Save the new, clean DataFrame to a CSV file.
+# This file will be used in the next step (EDA).
+df_processed.to_csv('ev_processed.csv', index=False)
+
+print("\n --- Complete! ---")
+print("Cleaned data has been saved as 'ev_processed.csv'")
