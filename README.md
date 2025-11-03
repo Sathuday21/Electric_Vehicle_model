@@ -10,10 +10,4 @@ The main goal of this model is Predicting the cost of an EV based on features li
 
 > Source: (https://www.kaggle.com/datasets/khushikyad001/electric-vehicle-analytics-dataset/data)
 
-# Next Steps:
 
-> Data Analysis
-
-> Building ML models
-
-> Creating an app using Streamlit
